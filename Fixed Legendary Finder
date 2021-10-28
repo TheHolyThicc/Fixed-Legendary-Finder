@@ -1,4 +1,4 @@
--- MADE BY Blissful#4992 / CornCatCornDog on V3rmillion -- Fixed by TheHolyThicc#9625
+-- MADE BY Blissful#4992 / CornCatCornDog on V3rmillion
 coroutine.wrap(function()
 	local script = [[
         repeat wait() until game:GetService("Players") ~= nil and game:GetService("Players").LocalPlayer ~= nil
@@ -10,7 +10,6 @@ coroutine.wrap(function()
             
         local HttpService = game:GetService("HttpService")
         local TPService = game:GetService("TeleportService")
-        local Healthv = {Bear = 300, Bison = 150, Dear = 50, Gator = 200, Cow = 100}
 
         wait()
         local function check()
@@ -23,7 +22,7 @@ coroutine.wrap(function()
             local c = 0
             for i,v in pairs(game:GetService("Workspace")["WORKSPACE_Entities"].Animals:GetChildren()) do
                 local health = v:WaitForChild("Health")
-                if health and Healthv[v.Name] and health.Value > Healthv[v.Name] then 
+                if health and health.Value > 300 then 
                     c = c + 1
                     objects[c] = {"Legendary", v}
                     exists = true
