@@ -22,7 +22,7 @@ coroutine.wrap(function()
             local c = 0
             for i,v in pairs(game:GetService("Workspace")["WORKSPACE_Entities"].Animals:GetChildren()) do
                 local health = v:WaitForChild("Health")
-                if health and health.Value > 300 then 
+                if health and health.Value > 300 and v.Name ~= "Wendigo" and v.Name ~= "UndeadBear" then 
                     c = c + 1
                     objects[c] = {"Legendary", v}
                     exists = true
