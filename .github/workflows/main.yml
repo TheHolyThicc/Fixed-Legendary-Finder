@@ -34,8 +34,7 @@ jobs:
           cache: 'gradle'
 
       - name: Build debug APK and run jvm tests
-        run: ./gradlew assembleDebug lintFullDebug testFullDebugUnitTest --stacktrace -DskipFormatKtlint
-          working-directory: ./InnerTune-0.5.10
+        run: InnerTune-0.5.10/gradlew assembleDebug lintFullDebug testFullDebugUnitTest --stacktrace -DskipFormatKtlint
         env:
           MUSIC_DEBUG_KEYSTORE_FILE: 'music-debug.jks'
           MUSIC_DEBUG_SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
