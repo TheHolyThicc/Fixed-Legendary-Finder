@@ -18,7 +18,7 @@ jobs:
     steps:
 
       - name: unzip
-        run: ls -a && unzip InnerTune-0.5.10.zip && cd InnerTune-0.5.10
+        run: ls -a
         env:
           PULL_REQUEST: 'true'
           
