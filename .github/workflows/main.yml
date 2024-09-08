@@ -20,7 +20,7 @@ jobs:
       - name: unzip
         run: unzip InnerTune.zip
       - name: ls
-        run: ls -a
+        run: echo $(secrets.GOOGLE_SERVICES)
 
       - name: Decode google-services.json
         run: echo ${{ secrets.GOOGLE_SERVICES }} | base64 -d >> app/google-services.json
