@@ -18,7 +18,7 @@ jobs:
     steps:
 
       - name: unzip
-        run: ls -a
+        run: cat app.txt
           
       - uses: actions/checkout@v4
 
