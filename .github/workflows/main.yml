@@ -18,13 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: unzip
-        run: unzip InnerTune-0.5.10.zip && cd InnerTune-0.5.10
+        run: unzip InnerTune.zip
 
       - name: Decode google-services.json
-        run: cd InnerTune-0.5.10 && echo ${{ secrets.GOOGLE_SERVICES }} | base64 -d >> app/google-services.json
+        run: echo ${{ secrets.GOOGLE_SERVICES }} | base64 -d >> /app/google-services.json
 
       - name: Decode Keystore
-        run: cd InnerTune-0.5.10 && echo ${{ secrets.KEYSTORE }} | base64 -d >> app/music-debug.jks
+        run: echo ${{ secrets.KEYSTORE }} | base64 -d >> /app/music-debug.jks
 
       - name: set up JDK 17
         uses: actions/setup-java@v4
@@ -34,7 +34,7 @@ jobs:
           cache: 'gradle'
 
       - name: Build debug APK and run jvm tests
-        run: cd InnerTune-0.5.10 && ./gradlew assembleDebug lintFullDebug testFullDebugUnitTest --stacktrace -DskipFormatKtlint
+        run: ./gradlew assembleDebug lintFullDebug testFullDebugUnitTest --stacktrace -DskipFormatKtlint
         env:
           MUSIC_DEBUG_KEYSTORE_FILE: 'music-debug.jks'
           MUSIC_DEBUG_SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
